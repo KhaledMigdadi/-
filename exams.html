@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> صفحة الامتحانات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Cairo', sans-serif;
+        background: #f0f4f8;
+        color: #333;
+    }
+    /* رأس الصفحة */
+    header {
+        background: #0b3d91; /* أزرق أغمق */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        position: relative;
+        text-shadow: 0 0 8px #ffffff, 0 0 15px #00f; /* تأثير glow للنص */
+    }
+    /* سهم الرجوع */
+    .back-arrow {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: rgb(250, 250, 250);
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+    .back-arrow:hover {
+        transform: translateY(-50%) scale(2);
+        text-shadow: 0 0 8px rgb(254, 254, 0), 0 0 15px rgb(255, 38, 0);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+    .unit-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .unit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .unit-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    .unit-header h2 {
+        margin: 0;
+        font-size: 20px;
+    }
+    .unit-content {
+        margin-top: 15px;
+        display: none;
+    }
+    .lesson {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f8f9fa;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .lesson span {
+        font-weight: 500;
+    }
+    .buttons {
+        display: flex;
+        gap: 10px;
+    }
+    .btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        color: white;
+    }
+    .btn-online { background: #198754; }
+    .btn-online:hover { background: #157347; }
+    .btn-pdf { background: #ffc107; color: #333; }
+    .btn-pdf:hover { background: #e0a800; }
+    .unit-final {
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <a href="GEO.html" class="back-arrow">←</a>
+     صفحة الامتحانات
+</header>
+
+<div class="container">
+
+    <!-- الوحدة الأولى -->
+    <div class="unit-card">
+        <div class="unit-header" onclick="toggleUnit(this)">
+            <h2>الوحدة 1: التغير المناخي</h2>
+            <span>▼</span>
+        </div>
+        <div class="unit-content">
+            <div class="lesson">
+                <span>الدرس 1: الوقود الأحفوري وغازات الدفيئة</span>
+                <div class="buttons">
+                    <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="pdf/الوقود الأحفوري وغازات الدفيئة.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 2: الوقود الأحفوري والتغير المناخي</span>
+                <div class="buttons">
+                    <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="pdf/الوقود الأحفوري والتغير المناخي.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 3: الحد من التغير المناخي والتكيف مع آثاره</span>
+                <div class="buttons">
+                    <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="pdf/الحد من التغير المناخي والتكيف مع آثاره.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="unit-final">
+                <a href="unit1_online.html" class="btn btn-online">امتحان الوحدة كامل</a>
+                <a href="unit1.pdf" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الوحدة الثانية -->
+    <div class="unit-card">
+        <div class="unit-header" onclick="toggleUnit(this)">
+            <h2>الوحدة 2: التراكيب الجيولوجية</h2>
+            <span>▼</span>
+        </div>
+        <div class="unit-content">
+            <div class="lesson">
+                <span>الدرس 1: تشوه الصخور</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 2: الصدوع</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 3: الطيات</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 4: الجيولوجيا الهندسية</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="unit-final">
+                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الوحدة الثالثة -->
+    <div class="unit-card">
+        <div class="unit-header" onclick="toggleUnit(this)">
+            <h2>الوحدة 3: الصفائح التكتونية</h2>
+            <span>▼</span>
+        </div>
+        <div class="unit-content">
+            <div class="lesson">
+                <span>الدرس 1: انجراف القارات</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 2: توسع قاع المحيط</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 3: حدود الصفائح</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="unit-final">
+                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الوحدة الرابعة -->
+    <div class="unit-card">
+        <div class="unit-header" onclick="toggleUnit(this)">
+            <h2>الوحدة 4: الاستكشاف الجيولوجي</h2>
+            <span>▼</span>
+        </div>
+        <div class="unit-content">
+            <div class="lesson">
+                <span>الدرس 1: الخرائط الجيولوجية</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 2: طرائق الاستكشاف الجيولوجي</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="lesson">
+                <span>الدرس 3: تعدين الخامات المعدنية وأثره على البيئة</span>
+                <div class="buttons">
+                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
+                </div>
+            </div>
+            <div class="unit-final">
+                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleUnit(element) {
+    const content = element.nextElementSibling;
+    const arrow = element.querySelector('span');
+    if(content.style.display === "block") {
+        content.style.display = "none";
+        arrow.textContent = "▼";
+    } else {
+        content.style.display = "block";
+        arrow.textContent = "▲";
+    }
+}
+</script>
+
+</body>
+</html>

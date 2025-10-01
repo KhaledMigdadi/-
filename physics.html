@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>GeoCode | فيزياء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+    color: white;
+    background: #070b15;
+  }
+
+  canvas { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
+
+  header {
+    padding: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-btn {
+    position: absolute;
+    left: 15px;
+    color: #00d8ff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover {
+    transform: scale(1.2);
+    color: yellow;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #00d8ff;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    background: linear-gradient(45deg, #00d8ff, #0099ff);
+    color: black;
+    text-decoration: none;
+  }
+
+  .btn i { font-size: 1.3rem; animation: pulse 1.5s infinite; }
+
+  .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 216, 255, 0.4);
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); color: #fff; }
+    50% { transform: scale(1.3); color: yellow; }
+    100% { transform: scale(1); color: #fff; }
+  }
+
+  /* معرض الصور */
+  .slider {
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 15px;
+    cursor: grab;
+  }
+
+  .slider-track img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,216,255,0.5);
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  /* معادلات متطايرة */
+  .equation {
+    position: absolute;
+    color: rgba(0,216,255,0.3);
+    font-size: 18px;
+    user-select: none;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+  💡 موقع الأستاذ خالد مقدادي | فيزياء
+</header>
+
+<section class="hero">
+  <h1>فيزياء</h1>
+  <p>استكشف قوانين الفيزياء بطريقة ممتعة وتفاعلية، شاهد البثوث الأسبوعية، شارك في الاختبارات، وتمتع بحصص مجانية مع الأستاذ. تفاعل مع الصور مباشرة من هنا.</p>
+
+  <div class="buttons">
+    <a href="exams.html" class="btn"><i class="fas fa-file-alt"></i> الامتحانات</a>
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uhDdhM7Hb9duViGKyLeUJi&si=glyenlw-QAkKdgs8" class="btn"><i class="fas fa-video"></i> البثوث المباشرة</a>
+    <a href="https://chat.whatsapp.com/Be1WxR4wm8EHxnfzHBZkWt?mode=ems_copy_t
+" class="btn"><i class="fab fa-whatsapp"></i> جروب الواتساب</a>
+    <a href="https://www.facebook.com/groups/213022146432749/?ref=share&mibextid=NSMWBT" class="btn"><i class="fab fa-facebook"></i> جروب الفيسبوك</a>
+    <a href="https://bit.ly/3RLv5Yy" class="btn"><i class="fas fa-credit-card"></i> شراء البطاقة</a>
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9v1viy8fQoQRSfbtPWMB2DI&si=z5Ngj5lgjkFCUTmb" class="btn"><i class="fas fa-graduation-cap"></i> حصص مجانية</a>
+    <!-- <a href="#" class="btn"><i class="fas fa-briefcase"></i> الحقيبة الإلكترونية</a> -->
+  </div>
+
+  <!-- معرض الصور -->
+  <div class="slider">
+    <div class="slider-track">
+      <img src="image/spher.jpg" >
+      <img src="image/dumpls.jpg" >
+      <img src="image/spher.jpg">
+      <img src="image/experment.jpg" >
+      <img src="image/heart.jpg" >
+    </div>
+  </div>
+</section>
+
+<footer>
+  جميع الحقوق محفوظة © 2025 | الأستاذ خالد مقدادي
+</footer>
+
+<!-- Three.js + نجوم + معادلات -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script>
+  // النجوم
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  function createStars() {
+    const geo = new THREE.BufferGeometry();
+    const count = 2000;
+    const pos = [];
+    for(let i=0;i<count;i++){
+      pos.push((Math.random()-0.5)*2000);
+      pos.push((Math.random()-0.5)*2000);
+      pos.push((Math.random()-0.5)*2000);
+    }
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+    return new THREE.Points(geo,new THREE.PointsMaterial({color:0xffffff}));
+  }
+  const stars = createStars();
+  scene.add(stars);
+
+  camera.position.set(0,0,5);
+
+  function animateStars() {
+    requestAnimationFrame(animateStars);
+    stars.rotation.y += 0.0005;
+    renderer.render(scene,camera);
+  }
+  animateStars();
+
+  window.addEventListener("resize",()=>{
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // المعادلات المتطايرة
+  const equations = ['E=mc²','F=ma','V=IR','p=mv','λ=h/p','ΔE=hf','a²+b²=c²','F=q(E+v×B)'];
+  const eqSpans = [];
+
+  for(let i=0;i<50;i++){
+    const span = document.createElement('span');
+    span.className = 'equation';
+    span.innerText = equations[Math.floor(Math.random()*equations.length)];
+    span.style.left = Math.random() * window.innerWidth + 'px';
+    span.style.top = Math.random() * window.innerHeight + 'px';
+    span.style.fontSize = (12 + Math.random()*22)+'px';
+    span.style.opacity = (0.2 + Math.random()*0.4);
+    document.body.appendChild(span);
+
+    const speedX = (Math.random()-0.5) * 0.3;
+    const speedY = 0.1 + Math.random()*0.3;
+    eqSpans.push({span, speedX, speedY});
+  }
+
+  function animateEquations() {
+    eqSpans.forEach(obj=>{
+      let top = parseFloat(obj.span.style.top);
+      let left = parseFloat(obj.span.style.left);
+
+      top -= obj.speedY;
+      left += obj.speedX;
+
+      if(top < -50) top = window.innerHeight + 50;
+      if(left < -50) left = window.innerWidth + 50;
+      if(left > window.innerWidth + 50) left = -50;
+
+      obj.span.style.top = top + 'px';
+      obj.span.style.left = left + 'px';
+    });
+    requestAnimationFrame(animateEquations);
+  }
+  animateEquations();
+
+  // سحب الصور
+  const track = document.querySelector('.slider-track');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener('mousedown', (e)=>{
+    isDown = true;
+    track.style.cursor = 'grabbing';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener('mouseup', ()=>{
+    isDown=false; 
+    track.style.cursor='grab';
+  });
+
+  track.addEventListener('mouseleave', ()=>{
+    isDown=false; 
+    track.style.cursor='grab';
+  });
+
+  track.addEventListener('mousemove', (e)=>{
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    track.scrollLeft = scrollLeft - walk;
+  });
+</script>
+</body>
+</html>
