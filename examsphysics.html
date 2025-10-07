@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>امتحانات الفيزياء | Dynamo </title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* رأس الصفحة */
+  header {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  header .back-arrow {
+    position: absolute;
+    right: 20px;
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  header .back-arrow:hover {
+    color: #fdd835;
+    transform: scale(1.1);
+  }
+
+  header h1 {
+    font-size: 1.7em;
+    margin: 0;
+    color: #fdd835;
+    animation: fadeInDown 1s ease;
+  }
+
+  /* حركة الدخول */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* الشبكة */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+  }
+
+  /* الكروت */
+  .unit {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    animation: fadeInUp 0.8s ease;
+  }
+
+  .unit:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .unit i {
+    font-size: 2.8em;
+    color: #fdd835;
+    margin-bottom: 12px;
+  }
+
+  .unit h2 {
+    color: #fff;
+    margin: 10px 0;
+    font-size: 1.3em;
+  }
+
+  /* الأزرار */
+  .btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .btns a {
+    text-decoration: none;
+    color: #141e30;
+    background: #fdd835;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 1em;
+  }
+
+  .btns a:hover {
+    background: #ffeb3b;
+    transform: scale(1.05);
+  }
+
+  /* حركة الكروت */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ذيل الصفحة */
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 25px;
+  }
+
+  /* تجاوب */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 1.4em;
+    }
+    .unit h2 {
+      font-size: 1.1em;
+    }
+    .btns a {
+      font-size: 0.95em;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="physics.html" class="back-arrow"><i class="fa-solid fa-arrow-right"></i></a>
+  <h1>امتحانات الفيزياء</h1>
+</header>
+
+<div class="container">
+
+  <div class="unit">
+    <i class="fa-solid fa-bolt"></i>
+    <h2>الزخم الخطي والتصادمات</h2>
+    <div class="btns">
+      <a href="pdfs/momentum_exam.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
+      <a href="https://forms.gle/..." target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
+      <a href="pdfs/momentum_solution.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a>
+    </div>
+  </div>
+
+  <div class="unit">
+    <i class="fa-solid fa-rotate"></i>
+    <h2>الحركة الدورانية</h2>
+    <div class="btns">
+      <a href="pdfs/rotation_exam.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
+      <a href="https://forms.gle/..." target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
+      <a href="pdfs/rotation_solution.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a>
+    </div>
+  </div>
+
+  <div class="unit">
+    <i class="fa-solid fa-bolt-lightning"></i>
+    <h2>الكهرباء السكونية</h2>
+    <div class="btns">
+      <a href="pdfs/static_exam.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
+      <a href="https://forms.gle/..." target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
+      <a href="pdfs/static_solution.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a>
+    </div>
+  </div>
+
+  <div class="unit">
+    <i class="fa-solid fa-plug"></i>
+    <h2>التيار الكهربائي</h2>
+    <div class="btns">
+      <a href="pdfs/current_exam.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
+      <a href="https://forms.gle/..." target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
+      <a href="pdfs/current_solution.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Dynamo | بإشراف الأستاذ خالد مقدّمي
+</footer>
+
+</body>
+</html>
